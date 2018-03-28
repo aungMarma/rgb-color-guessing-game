@@ -81,11 +81,14 @@ function newColors(easyGame){
 	var randomDiv = arrayOfDivs[randomNumOneToSix];
 	rgbText.innerHTML = randomDiv.style.backgroundColor;
 }
+
+// so page load with a game on it
 newColors();
+
+// start a new game 
 startGame.addEventListener("click", function(){
 	newColors();
 })
-
 
 // start the game (which is hard by default)
 hard.addEventListener("click", function(){
