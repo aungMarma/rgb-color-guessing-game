@@ -15,6 +15,7 @@ function getRandomColor(){
 	return colorSt;
 }
 
+// elements to work on
 var hard = document.querySelector("#hard");
 var easy = document.querySelector("#easy");
 var colorBox = document.querySelector(".color-box");
@@ -37,8 +38,9 @@ function colorMatch(color) {
 	}
 }
 
+// starts the game with six diff colored divs to choose, hard option
 function newColors(easyGame){
-	// empty the .color-box div, and arraydivs, starts from scratch
+	// empty the .color-box div and arraydivs, starts from scratch
 	$('.color-box').empty();              // o child
 	arrayOfDivs = [];
 	var level = 6;
@@ -50,19 +52,17 @@ function newColors(easyGame){
 		easy.classList.add("selected");
 		level = 3
 	}
-
 	// append 6 children to .color-box div
 	for(var i = 0; i < level; i++){
-		// create a div with class: color-individual-box, col-md-4, with a eventListener
+		// create a div with class: color-individual-box, with a eventListener
 		var aDiv = document.createElement("div");
 		aDiv.classList.add("color-individual-box");
 		let ranColor = getRandomColor();
 		aDiv.style.backgroundColor = ranColor;
-
+		// eventListener
 		aDiv.addEventListener("click", function(){
 			var thisColor = $( this ).css( "background-color" );  // get the background color
 			var rgbTextColor = rgbText.textContent;
-
 			// guessed wrong
 			if(thisColor !== rgbTextColor){
 				this.classList.add("hide");
@@ -71,7 +71,6 @@ function newColors(easyGame){
 				colorMatch(thisColor);
 			}
 		})
-
 		// append to color-box div, add to arrayDivs
 		colorBox.appendChild(aDiv);
 		arrayOfDivs.push(aDiv);
@@ -88,7 +87,7 @@ startGame.addEventListener("click", function(){
 })
 
 
-// start the game which is hard by default
+// start the game (which is hard by default)
 hard.addEventListener("click", function(){
 	newColors();
 })

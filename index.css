@@ -20,7 +20,8 @@ html, body {
 }
 
 .my-navbar button {
-	outline: none;
+	/* get rid of bootstrap or default button style*/
+	outline: none;   
 	border: none;
 	padding: 0 15px;
 }
@@ -41,6 +42,7 @@ html, body {
 }
 
 .color-individual-box {
+	/* each individual box is 30.3333, rest 9 divided in 6 margin */
 	width: 30.333333%;
 	margin: 1.5%;
 	height: 130px;
